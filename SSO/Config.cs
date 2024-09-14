@@ -22,13 +22,27 @@ namespace SSO
             {
                 new Client
                 {
-                    ClientId = "client",
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    ClientId = "client_id",
+                    AllowedGrantTypes = GrantTypes.Code, // Authorization Code Flow を許可
                     ClientSecrets =
                     {
-                        new Secret("secret".Sha256())
+                        new Secret("client_secret".Sha256())
                     },
-                    AllowedScopes = { "api1" }
+                    RedirectUris =
+                    {
+                        "http://localhost:5117/signin-oidc"
+                    },
+                    PostLogoutRedirectUris =
+                    {
+                        "http://localhost:5117/signout-callback-oidc"
+                    },
+                    AllowedScopes = { "openid", "profile", "api1" }, // スコープの設定
+
+                    // リフレッシュトークンの許可
+                    AllowOfflineAccess = true,
+
+                    // PKCE (Proof Key for Code Exchange) を有効にする
+                    RequirePkce = true
                 }
             };
     }

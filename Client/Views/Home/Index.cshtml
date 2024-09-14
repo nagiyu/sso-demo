@@ -6,3 +6,18 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h2>@ViewData["Title"]</h2>
+
+<p>@ViewBag.Message</p>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form method="post" asp-action="Logout">
+        <button type="submit">ログアウト</button>
+    </form>
+}
+else
+{
+    <a href="/Home/Login">ログイン</a>
+}

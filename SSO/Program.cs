@@ -22,6 +22,12 @@ builder.Services.AddIdentityServer()
     .AddInMemoryIdentityResources(Config.IdentityResources) // Identityリソースの設定
     .AddAspNetIdentity<IdentityUser>(); // ASP.NET Core Identityと統合
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // 常にSecureを使用
+    options.Cookie.SameSite = SameSiteMode.None; // SameSite=Noneを設定
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
