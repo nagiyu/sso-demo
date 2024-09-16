@@ -9,6 +9,11 @@ namespace SSO
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResource
+                {
+                    Name = "roles",
+                    UserClaims = new List<string> { "role" } // ロールを含める
+                },
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -36,13 +41,17 @@ namespace SSO
                     {
                         "http://localhost:5117/signout-callback-oidc"
                     },
-                    AllowedScopes = { "openid", "profile", "api1" }, // スコープの設定
+
+                    AllowedScopes = { "openid", "profile", "roles", "api1" }, // スコープの設定
 
                     // リフレッシュトークンの許可
                     AllowOfflineAccess = true,
 
                     // PKCE (Proof Key for Code Exchange) を有効にする
-                    RequirePkce = true
+                    RequirePkce = true,
+
+                    // ロールのクレームを含める
+                    AlwaysIncludeUserClaimsInIdToken = true
                 }
             };
     }

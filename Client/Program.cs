@@ -37,6 +37,7 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Add("openid");
         options.Scope.Add("profile");
         options.Scope.Add("api1");
+        options.Scope.Add("roles"); // ロール情報を含むスコープを追加
 
         // トークンを保存する設定
         options.SaveTokens = true;
@@ -45,7 +46,7 @@ builder.Services.AddAuthentication(options =>
         options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
         {
             NameClaimType = "name", // ユーザー名のクレーム
-            RoleClaimType = "role", // 役割のクレーム
+            RoleClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" // ロールクレームのタイプを設定
         };
 
         // 認証後のリダイレクト処理
