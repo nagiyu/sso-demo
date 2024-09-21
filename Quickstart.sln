@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebAppli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client1", "Client1\Client1.csproj", "{903E64EB-F9D9-40E6-B6C1-7EBCDC7766C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client2", "Client2\Client2.csproj", "{48C05984-0F43-42BF-94DA-B76F650D15F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client2", "Client2\Client2.csproj", "{48C05984-0F43-42BF-94DA-B76F650D15F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerWithDotNet", "IdentityServerWithDotNet\IdentityServerWithDotNet.csproj", "{09BE8B48-61E2-4AB3-8BEA-94858A5A8B13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{48C05984-0F43-42BF-94DA-B76F650D15F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48C05984-0F43-42BF-94DA-B76F650D15F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48C05984-0F43-42BF-94DA-B76F650D15F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09BE8B48-61E2-4AB3-8BEA-94858A5A8B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09BE8B48-61E2-4AB3-8BEA-94858A5A8B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09BE8B48-61E2-4AB3-8BEA-94858A5A8B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09BE8B48-61E2-4AB3-8BEA-94858A5A8B13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
