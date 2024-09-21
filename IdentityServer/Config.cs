@@ -7,7 +7,19 @@ namespace IdentityServer
         public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope>
             {
-            new ApiScope("api1", "My API")
+                new ApiScope("api1", "My API")
+            };
+
+        // ApiResourceを追加して、audを生成するように設定
+        public static IEnumerable<ApiResource> ApiResources =>
+            new List<ApiResource>
+            {
+                new ApiResource("api1", "My API")
+                {
+                    Scopes = { "api1" },
+                    ApiSecrets = { new Secret("secret".Sha256()) },
+                    UserClaims = { "aud" }
+                }
             };
 
         public static IEnumerable<Client> Clients =>

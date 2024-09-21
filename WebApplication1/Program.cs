@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddAuthentication("Bearer")
     .AddIdentityServerAuthentication(options =>
     {
-        options.Authority = "http://localhost:5000";
+        options.Authority = "https://localhost:5000";
         options.RequireHttpsMetadata = false;
         options.ApiName = "api1";
     });
@@ -27,10 +27,10 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
 // Use Authentication
 app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.MapControllers();
 
